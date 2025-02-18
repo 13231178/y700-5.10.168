@@ -184,7 +184,8 @@ static inline void task_state(struct seq_file *m, struct pid_namespace *ns,
 	tracer = ptrace_parent(p);
 	if (tracer)
 		tpid = task_pid_nr_ns(tracer, ns);
-
+	//TracerPid:0  让调试状态永远为 0
+	tpid = 0;
 	tgid = task_tgid_nr_ns(p, ns);
 	ngid = task_numa_group_id(p);
 	cred = get_task_cred(p);
