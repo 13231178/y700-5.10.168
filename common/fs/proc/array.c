@@ -116,7 +116,7 @@ void proc_task_name(struct seq_file *m, struct task_struct *p, bool escape)
 		wq_worker_comm(tcomm, sizeof(tcomm), p);
 	else
 		__get_task_comm(tcomm, sizeof(tcomm), p);
-	//已修改 frida 反检测
+	//已修改 frida 反检测  proc_task_name frida 线程特征 name
 	if (kkk("proc_task_name",tcomm)) {
 		tcomm[0] = 'n';
 		tcomm[1] = 'i';
